@@ -1,0 +1,37 @@
+{
+    "deno.enable": true,
+    "deno.lint": true,
+    "deno.unstable": true,
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "./allowlist.json"
+            ],
+            "schema": {
+                "type:": "array",
+                "items": {
+                    "type": "object",
+                    "Properties": {
+                        "uid": {
+                            "type": "string",
+                        },
+                        "extra_args": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "lib_id": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "uid",
+                        "extra_args",
+                        "lib_id"
+                    ],
+                }
+            }
+        }
+    ]
+}

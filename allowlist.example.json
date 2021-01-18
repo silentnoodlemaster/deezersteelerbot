@@ -1,0 +1,15 @@
+[
+    {
+        "uid": "YOUR TELEGRAM ID HERE",
+        "extra_args": [],
+        "lib_id": "The key value for the music library here"
+    },
+    {
+        "uid": "1234",
+        "extra_args": [
+            "--path",
+            "/some/path (see deemix help for options)"
+        ],
+        "lib_id": 1
+    }
+]
