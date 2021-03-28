@@ -28,6 +28,7 @@ interface User {
 const regex = /(?:deezer|spotify)\.(?:com|page)/;
 bot.on(UpdateType.Message, ({ message }) => {
   var link = "";
+  console.log(String(message.from!.id))
   const currentUser = allowlist.find(
     (user) => {
       return user.uid == String(message.from!.id);
@@ -87,11 +88,15 @@ bot.on(UpdateType.Message, ({ message }) => {
             disable_web_page_preview: true,
           });
         } else {
-          bot.editMessageText({
+          bot.deleteMessage({
             message_id: message.message_id,
             chat_id: message.chat.id,
-            text: "fatal error",
           });
+          const form = new FormData();
+          form.append("chat_id", message.chat.id.toString());
+          form.append("document", new Blob([output]), "log.txt")
+          form.append("caption", "error details")
+          bot.sendDocument(form);
         }
       });
     } else {
